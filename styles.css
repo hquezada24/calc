@@ -32,22 +32,27 @@ body {
     padding: 0 1rem;
 }
 
-form {
+#input {
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: center;
 }
 
-input{
+#input-box{
     width: 98%;
     height: 3rem;
     padding: 0 1rem;
     border: none;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.3rem;
 }
 
-input:focus{
-    border: none;
+#input-box:focus{
+    border: 1px solid navy;
 }
 
 .buttons {
