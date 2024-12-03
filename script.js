@@ -1,17 +1,5 @@
-let input = document.querySelector('#input-box');
+const input = document.querySelector('#input-box');
 const submit = document.querySelector('#submit');
+const digits = document.querySelector(".digits");
 
 
-
-submit.addEventListener('click', calc);
-
-function calc() {
-    let operation = input.value;
-    operation.includes('+') ? sum() : 0;
-    let array = operation.split('');
-    console.log(array);
-}
-
-function sum(){
-
-}
