@@ -11,7 +11,18 @@ const del = () => {
     input.innerText = out;
 };
 
-const switchOperator = () => {};
+const setOperator = (operator) => {
+    let str = input.innerText;
+    let arr = str.split("");
+    if(arr[arr.length - 1] !== Number){
+        arr.pop();
+        arr.push(operator);
+        let out = arr.join("");
+        input.innerText = out;
+    } else {
+        str += operator;
+    }
+};
 
 const parentheses = () => {}
 
@@ -20,78 +31,59 @@ buttons.addEventListener("click", (e) => {
 
     switch(target.id){
         case "clear":
-            console.log("AC was clicked");
             input.innerText = "";
             break;
         case "par":
-            console.log("() was clicked");
             break;
         case "mod":
-            console.log("% was clicked");
-            input.innerText += "% ";
+            input.innerText += "%";
             break;
         case "divide":
-            console.log("/ was clicked");
-            input.innerText += "/ ";
+            input.innerText += "/";
             break;
         case "seven":
-            console.log("7 was clicked");
-            input.innerText += `${7} `;
+            input.innerText += `${7}`;
             break;
         case "eight":
-            console.log("8 was clicked");
-            input.innerText += `${8} `;
+            input.innerText += `${8}`;
             break;
         case "nine":
-            console.log("9 was clicked");
-            input.innerText += `${9} `;
+            input.innerText += `${9}`;
             break;
         case "times":
-            console.log("* was clicked");
-            input.innerText += "× ";
+            input.innerText += "×";
             break;
         case "four":
-            console.log("4 was clicked");
-            input.innerText += `${4} `;
+            input.innerText += `${4}`;
             break;
         case "five":
-            console.log("5 was clicked");
-            input.innerText += `${5} `;
+            input.innerText += `${5}`;
             break;
         case "six":
-            console.log("6 was clicked");
-            input.innerText += `${6} `;
+            input.innerText += `${6}`;
             break;
         case "plus":
-            console.log("+ was clicked");
-            input.innerText += "+ ";
+            input.innerText += "+";
             break;
         case "one":
-            console.log("1 was clicked");
-            input.innerText += `${1} `;
+            input.innerText += `${1}`;
             break;
         case "two":
-            console.log("2 was clicked");
-            input.innerText += `${2} `;
+            input.innerText += `${2}`;
             break;
         case "three":
-            console.log("3 was clicked");
-            input.innerText += `${3} `;
+            input.innerText += `${3}`;
             break;
         case "minus":
-            console.log("4 was clicked");
-            input.innerText += "- ";
+            setOperator("-");
             break;
         case "zero":
-            console.log("0 was clicked");
-            input.innerText += `${0} `;
+            input.innerText += `${0}`;
             break;
         case "point":
-            console.log(". was clicked");
-            input.innerText += `. `;
+            input.innerText += `.`;
             break;
         case "delete":
-            console.log("<- was clicked");
             del();
             break;
         case "submit":
