@@ -1,7 +1,7 @@
 const input = document.querySelector('#input-box');
 const submit = document.querySelector('#submit');
 const buttons = document.querySelector(".buttons");
-// const digits = document.querySelector(".digits");
+const previous = document.querySelector("#prev");
 
 const del = () => {
     let str = input.innerText;
@@ -14,17 +14,56 @@ const del = () => {
 const setOperator = (operator) => {
     let str = input.innerText;
     let arr = str.split("");
-    if(arr[arr.length - 1] !== Number){
+    const operators = "+-/×%";
+    if(operators.includes(arr[arr.length - 1])){
         arr.pop();
         arr.push(operator);
         let out = arr.join("");
         input.innerText = out;
     } else {
-        str += operator;
+        input.innerText += operator;
     }
 };
 
-const parentheses = () => {}
+const setParentheses = () => {
+    let str = input.innerText;
+    if(str.findLast("(")){
+        input.innerText += ")";
+    } else {
+        input.innerText += "(";
+    }
+}
+
+const execute = () => {
+    let prev = input.innerText;
+    let str = input.innerText;
+    const tokens = str.split(/(\+|\-|\×|\/)/);
+    let result = parseFloat(tokens[0]);
+    for(let i = 1; i < tokens.length; i++){
+        const operator = tokens[i];
+        const operand = parseFloat(tokens[i + 1]);
+        
+        switch(operator){
+            case "+":
+                result += operand;
+                break;
+            case "-":
+                result += operand;
+                break;
+            case "×":
+                result *= operand;
+                break;
+            case "/":
+                result /= operand;
+                break;
+            case "%":
+                result %= operand;
+                break;
+        }
+    }
+    prev.innerText = str;
+    input.innerText = result;
+};
 
 buttons.addEventListener("click", (e) => {
     let target = e.target;
@@ -34,12 +73,13 @@ buttons.addEventListener("click", (e) => {
             input.innerText = "";
             break;
         case "par":
+            setParentheses();
             break;
         case "mod":
-            input.innerText += "%";
+            setOperator("%");
             break;
         case "divide":
-            input.innerText += "/";
+            setOperator("/");
             break;
         case "seven":
             input.innerText += `${7}`;
@@ -51,7 +91,7 @@ buttons.addEventListener("click", (e) => {
             input.innerText += `${9}`;
             break;
         case "times":
-            input.innerText += "×";
+            setOperator("×");
             break;
         case "four":
             input.innerText += `${4}`;
@@ -63,7 +103,7 @@ buttons.addEventListener("click", (e) => {
             input.innerText += `${6}`;
             break;
         case "plus":
-            input.innerText += "+";
+            setOperator("+");
             break;
         case "one":
             input.innerText += `${1}`;
@@ -81,13 +121,13 @@ buttons.addEventListener("click", (e) => {
             input.innerText += `${0}`;
             break;
         case "point":
-            input.innerText += `.`;
+            setOperator(".");
             break;
         case "delete":
             del();
             break;
         case "submit":
-            console.log("= was clicked");
+            execute();
             break;
     }
 });
