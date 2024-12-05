@@ -26,10 +26,10 @@ body {
 
 .prev {
     height: 5%;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 1rem;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 #input {
@@ -39,16 +39,36 @@ body {
     justify-content: center;
 }
 
+.iceland-regular {
+    font-family: "Iceland", sans-serif;
+    font-size: 2rem;
+  }  
+
 #input-box{
-    width: 98%;
+    width: 95%;
     height: 3rem;
     padding: 0 1rem;
     border: none;
     background-color: aquamarine;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    font-size: 1.3rem;
+    align-items: flex-end;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#prev {
+    width: 95%;
+    height: 1.2rem;
+    padding: 0 1rem;
+    border: none;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 1.2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #input-box:focus{
@@ -90,4 +110,3 @@ button:focus{
 #submit {
     background-color: #90EE90;
 }
-

@@ -35,7 +35,7 @@ const setParentheses = () => {
 }
 
 const execute = () => {
-    let prev = input.innerText;
+    //let prev = previous.innerText;
     let str = input.innerText;
     const tokens = str.split(/(\+|\-|\×|\/)/);
     let result = parseFloat(tokens[0]);
@@ -48,7 +48,7 @@ const execute = () => {
                 result += operand;
                 break;
             case "-":
-                result += operand;
+                result -= operand;
                 break;
             case "×":
                 result *= operand;
@@ -61,7 +61,7 @@ const execute = () => {
                 break;
         }
     }
-    prev.innerText = str;
+    previous.innerText = input.innerText;
     input.innerText = result;
 };
 
@@ -71,6 +71,7 @@ buttons.addEventListener("click", (e) => {
     switch(target.id){
         case "clear":
             input.innerText = "";
+            previous.innerText = "";
             break;
         case "par":
             setParentheses();
