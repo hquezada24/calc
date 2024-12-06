@@ -1,6 +1,7 @@
 const input = document.querySelector('#input-box');
 const submit = document.querySelector('#submit');
 const buttons = document.querySelector(".buttons");
+//const button = document.querySelector(".myButton");
 const previous = document.querySelector("#prev");
 
 const del = () => {
@@ -57,7 +58,7 @@ const execute = () => {
                 result /= operand;
                 break;
             case "%":
-                result %= operand;
+                operand % result;
                 break;
         }
     }
@@ -128,6 +129,91 @@ buttons.addEventListener("click", (e) => {
             del();
             break;
         case "submit":
+            execute();
+            break;
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    //button.blur();
+    let target = e.key;
+
+    switch(target){
+        case "1":
+            document.activeElement.blur();
+            input.innerText += "1";
+            break;
+        case "2":
+            document.activeElement.blur();
+            input.innerText += "2";
+            break;
+        case "3":
+            document.activeElement.blur();
+            input.innerText += "3";
+            break;
+        case "4":
+            document.activeElement.blur();
+            input.innerText += "4";
+            break;
+        case "5":
+            document.activeElement.blur();
+            input.innerText += "5";
+            break;
+        case "6":
+            document.activeElement.blur();
+            input.innerText += "6";
+            break;
+        case "7":
+            document.activeElement.blur();
+            input.innerText += "7";
+            break;
+        case "8":
+            document.activeElement.blur();
+            input.innerText += "8";
+            break;
+        case "9":
+            document.activeElement.blur();
+            input.innerText += "9";
+            break;
+        case "0":
+            document.activeElement.blur();
+            input.innerText += "0";
+            break;
+        case "c" || "C":
+            document.activeElement.blur();
+            previous.innerText = ""
+            input.innerText = "";
+            break;
+        case "+":
+            document.activeElement.blur();
+            setOperator("+");
+            break;
+        case "-":
+            document.activeElement.blur();
+            setOperator("-");
+            break;
+        case "*":
+            document.activeElement.blur();
+            setOperator("×");
+            break;
+        case "/":
+            document.activeElement.blur();
+            setOperator("/");
+            break;
+        case "%":
+            document.activeElement.blur();
+            setOperator("%");
+            break;
+        case ".":
+            document.activeElement.blur();
+            setOperator(".");
+            break;
+        case "Backspace":
+            document.activeElement.blur();
+            del();
+            break;
+        case "Enter" || "enter":
+            document.activeElement.blur();
             execute();
             break;
     }
